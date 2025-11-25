@@ -224,13 +224,19 @@ body.dark nav a:hover { background: rgba(255,255,255,0.1); }
 body.dark .promo-card p, body.dark .vantagem-item p { color: #cccccc; }
 body.dark #address-input { background-color: #333; color: #f0f0f0; }
 
-/* Esconde números no celular */
+/* Responsividade do número */
 @media (max-width: 768px) {
-  .diskgas-header span,
-  .diskgas-info p:first-of-type {
+  /* Esconde o telefone no header */
+  .diskgas-header {
     display: none !important;
   }
+
+  /* Mantém o telefone no rodapé visível, mas sem cor de link */
+  .diskgas-info p:first-of-type {
+    color: white !important; /* ou a cor que você quiser */
+  }
 }
+
 
 </style>
 </head>
@@ -361,5 +367,6 @@ menuToggle.addEventListener("click", () => {
 </script>
 </body>
 </html>
+
 
 
