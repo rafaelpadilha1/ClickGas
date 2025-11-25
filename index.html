@@ -237,30 +237,33 @@ body.dark #address-input { background-color: #333; color: #f0f0f0; }
   }
 }
 
+
 @media (max-width: 768px) {
   header {
-    flex-direction: column;
+    flex-direction: row; /* mantém os elementos na horizontal */
+    justify-content: space-between; /* logo à esquerda, botões à direita */
     align-items: center;
-    gap: 16px;
+    flex-wrap: wrap; /* permite que quebre para segunda linha se necessário */
+    gap: 12px;
+    padding: 12px 16px;
   }
 
   .brand {
-    flex-direction: column;
+    display: flex;
     align-items: center;
+    gap: 12px;
   }
 
   .right-section {
     display: flex;
-    flex-direction: row; /* mantém os botões na horizontal */
-    justify-content: center; /* centraliza horizontalmente */
-    gap: 12px; /* espaçamento entre os botões */
-    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex: 1; /* ocupa espaço restante à direita do logo */
   }
 
   nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+    display: none; /* opcional: esconda links e use hambúrguer */
   }
 }
 
@@ -393,6 +396,7 @@ menuToggle.addEventListener("click", () => {
 </script>
 </body>
 </html>
+
 
 
 
