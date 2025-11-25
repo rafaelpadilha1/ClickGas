@@ -166,82 +166,36 @@ body.dark .login-container input[type="submit"] { background: var(--primary-600)
 body.dark .login-container input[type="submit"]:hover { background: var(--accent); }
 body.dark .login-container a { color:#90caf9; }
 
-  /* ===========================
-   RESPONSIVIDADE SIMPLES
+/* ===========================
+   RESPONSIVIDADE
 =========================== */
 @media (max-width: 1024px) {
-  body {
-    padding: 16px;
-  }
-  header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .brand {
-    flex-direction: column;
-    gap: 16px;
-  }
-  nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-  }
-  .right-section {
-    justify-content: center;
-    gap: 12px;
-    margin-top: 12px;
-  }
-  .login-container {
-    padding: 32px;
-    width: 90%;
-    max-width: 400px;
-  }
-  .login-container h2 {
-    font-size: 1.6rem;
-  }
+  body { padding: 16px; }
+  header { flex-direction: column; align-items: center; text-align: center; }
+  .brand { flex-direction: column; gap:16px; }
+  nav { flex-wrap: wrap; justify-content: center; gap:8px; }
+  .right-section { justify-content: center; gap:12px; margin-top:12px; }
+  .login-container { padding:32px; width:90%; max-width:400px; }
+  .login-container h2 { font-size:1.6rem; }
 }
 
 @media (max-width: 768px) {
-  .login-container {
-    padding: 24px;
-  }
-  .login-container h2 {
-    font-size: 1.4rem;
-  }
-  .password-container input {
-    padding: 10px 36px 10px 10px;
-  }
-  .toggle-password img {
-    width: 20px;
-    height: 20px;
-  }
+  .login-container { padding:24px; }
+  .login-container h2 { font-size:1.4rem; }
+  .password-container input { padding:10px 36px 10px 10px; }
+  .toggle-password img { width:20px; height:20px; }
 }
 
 @media (max-width: 480px) {
-  header {
-    padding: 12px 12px;
-  }
-  .logo img {
-    height: 80px;
-  }
-  nav a {
-    font-size: 0.85rem;
-    padding: 6px 10px;
-  }
-  .login-container {
-    padding: 16px;
-  }
-  .login-container input[type="submit"] {
-    font-size: 0.95rem;
-    padding: 10px 16px;
-  }
-  .requirements-box {
-    font-size: 0.85rem;
-    padding: 10px;
-  }
+  header { padding:12px 12px; }
+  .logo img { height:80px; }
+  nav a { font-size:0.85rem; padding:6px 10px; }
+  .login-container { padding:16px; }
+  .login-container input[type="submit"] { font-size:0.95rem; padding:10px 16px; }
+  .requirements-box { font-size:0.85rem; padding:10px; }
+  .password-container { height:auto; flex-direction:column; margin-bottom:16px; }
+  .password-container input { margin-bottom:12px; }
 }
-
 </style>
 </head>
 <body>
@@ -269,7 +223,7 @@ body.dark .login-container a { color:#90caf9; }
 
 <div class="login-container">
   <h2>Registrar</h2>
-  <form action="/register" method="post">
+  <form id="register-form" action="/register" method="post">
     <input type="email" name="email" placeholder="Email" required>
     <input type="text" name="username" placeholder="Usuário" required>
 
@@ -333,6 +287,7 @@ function togglePassword(id, btn) {
 
 // Validação em tempo real da senha
 const passwordInput = document.getElementById('password');
+const confirmInput = document.getElementById('confirm_password');
 const requirements = {
   length: document.getElementById('length'),
   uppercase: document.getElementById('uppercase'),
@@ -347,8 +302,15 @@ passwordInput.addEventListener('input', () => {
   requirements.number.className = /\d/.test(value) ? 'valid' : 'invalid';
   requirements.special.className = /[!@#$%]/.test(value) ? 'valid' : 'invalid';
 });
+
+// Confirmação de senha ao enviar o formulário
+document.getElementById('register-form').addEventListener('submit', function(e) {
+  if(passwordInput.value !== confirmInput.value){
+    alert('As senhas não coincidem!');
+    e.preventDefault();
+  }
+});
 </script>
 
 </body>
 </html>
-
