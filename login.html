@@ -47,12 +47,11 @@ nav { display: flex; gap: 12px; }
 nav a { color: white; font-weight: 600; text-decoration: none; padding: 8px 12px; border-radius: 8px; transition: background 0.3s; }
 nav a:hover { background: rgba(255,255,255,0.2); }
 
-/* Right section ajustado */
 .right-section {
   display: flex;
   align-items: center;
-  gap: 8px; /* espaço entre os botões */
-  flex-wrap: nowrap; /* evita quebra de linha */
+  gap: 8px; 
+  flex-wrap: nowrap; 
 }
 .diskgas-header { display: flex; align-items: center; gap: 8px; color: white; font-weight: bold; font-size: 0.95rem; text-decoration: none; }
 .diskgas-header img { height: 32px; }
@@ -185,9 +184,7 @@ body.dark .login-container input[type="submit"] { background: var(--primary-600)
 body.dark .login-container input[type="submit"]:hover { background: var(--accent); }
 body.dark .login-container a { color: #90caf9; }
 
-/* ===============================
-   RESPONSIVIDADE
-================================= */
+
 @media (max-width: 1024px) {
   header { flex-direction: column; align-items: center; text-align: center; }
   .brand { flex-direction: column; gap: 12px; }
@@ -281,3 +278,4 @@ function togglePassword(id, btn) {
 
 </body>
 </html>
+
