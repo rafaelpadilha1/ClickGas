@@ -190,6 +190,7 @@ body.dark .login-container input[type="submit"]:hover { background: var(--accent
 body.dark .login-container a { color:#90caf9; }
 
 /* RESPONSIVIDADE */
+/* RESPONSIVIDADE */
 @media (max-width: 768px) {
   header {
     flex-direction: column;
@@ -211,13 +212,18 @@ body.dark .login-container a { color:#90caf9; }
   }
   .right-section {
     width: 100%;
+    display: flex;
     justify-content: space-between;
+    margin-top: 12px;
   }
   .login-container {
-    padding:24px;
+    padding: 24px;
   }
-  .login-container h2 { font-size:1.4rem; }
+  .login-container h2 {
+    font-size: 1.4rem;
+  }
 }
+
 </style>
 </head>
 <body>
@@ -358,3 +364,4 @@ document.getElementById('register-form').addEventListener('submit', function(e) 
 
 </body>
 </html>
+
