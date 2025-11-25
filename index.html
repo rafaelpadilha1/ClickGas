@@ -224,6 +224,14 @@ body.dark nav a:hover { background: rgba(255,255,255,0.1); }
 body.dark .promo-card p, body.dark .vantagem-item p { color: #cccccc; }
 body.dark #address-input { background-color: #333; color: #f0f0f0; }
 
+  /* Esconde números no celular */
+@media (max-width: 768px) {
+  .diskgas-header span,
+  .diskgas-info p:first-of-type {
+    display: none;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -353,3 +361,4 @@ menuToggle.addEventListener("click", () => {
 </script>
 </body>
 </html>
+
