@@ -1,272 +1,631 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Click Gás - Página Principal</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-<style>
-:root {
-  --bg: #f6f8fb;
-  --card: #ffffff;
-  --primary: #416ab4;
-  --primary-600: #348534;
-  --accent: #33c958;
-  --muted: #6b7280;
-  --radius: 12px;
-  --max-width: 1100px;
-  --gap: 20px;
-  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Click Gás - Página Principal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --primary: #416ab4;
+      --primary-600: #348534;
+      --accent: #33c958;
+      --muted: #6b7280;
+      --radius: 12px;
+      --max-width: 1100px;
+      --gap: 20px;
+      --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: #111827;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .site {
+      width: 100%;
+      max-width: none;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      justify-content: flex-start;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--gap);
+      margin-bottom: 32px;
+      background: var(--primary);
+      border-radius: var(--radius);
+      padding: 16px 24px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .logo img {
+      height: 100px;
+      width: auto;
+    }
+    nav {
+      display: flex;
+      gap: 12px;
+    }
+    nav a {
+      padding: 8px 12px;
+      text-decoration: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: 600;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+    .right-section {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .diskgas-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .diskgas-header img {
+      height: 32px;
+    }
+    .register-btn {
+      background-color: var(--accent);
+      color: white;
+      padding: 10px 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .register-btn:hover {
+      background-color: var(--primary-600);
+    }
+    .urgency-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--primary);
+      color: white;
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      margin-bottom: 32px;
+      gap: 12px;
+    }
+    .urgency-text {
+      font-size: 1rem;
+      font-weight: 600;
+      flex: 1 1 300px;
+      line-height: 1.3;
+    }
+    #address-form {
+      display: flex;
+      flex: 1 1 300px;
+      gap: 8px;
+    }
+    #address-input {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: 30px;
+      border: none;
+      font-size: 0.9rem;
+      outline: none;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    .urgency-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+    }
+    .urgency-btn:hover {
+      background: var(--primary-600);
+    }
+    .hero {
+      background: url('img/hero-background.jpg') no-repeat center center/cover;
+      height: 400px;
+      border-radius: var(--radius);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+      margin-bottom: 40px;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+    }
+    .cta-button {
+      margin-top: 20px;
+      background: var(--accent);
+      color: white;
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s;
+      display: inline-block;
+    }
+    .cta-button:hover {
+      background: var(--primary-600);
+    }
+    .promocoes {
+      background: var(--card);
+      padding: 40px 20px;
+      border-radius: var(--radius);
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .promocoes h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 32px;
+    }
+    .promo-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+    }
+    .promo-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      width: 320px;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .promo-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+    .promo-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+    }
+    .promo-title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      margin: 12px auto 0;
+      border-radius: 4px;
+    }
+    .promo-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+    .promo-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+    .promo-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .promo-btn:hover {
+      background: var(--primary-600);
+    }
+    .vantagens {
+      background: var(--card);
+      padding: 40px 20px;
+      border-radius: var(--radius);
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .vantagens h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 32px;
+    }
+    .vantagens-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+    }
+    .vantagem-item {
+      background: white;
+      width: 250px;
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s;
+    }
+    .vantagem-item:hover {
+      transform: translateY(-5px);
+    }
+    .vantagem-icon {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .diskgas {
+      background: var(--primary);
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      padding: 40px 20px;
+      border-radius: none;
+    }
+    .diskgas img {
+      height: 140px;
+    }
+    .diskgas-info {
+      max-width: 500px;
+      text-align: center;
+    }
+    .diskgas-info h2 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    .diskgas-info p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+    .diskgas-info a {
+      background: #33c958;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .diskgas-info a:hover {
+      background: #348534;
+    }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    /* Menu hambúrguer para mobile */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      width: 30px;
+      height: 24px;
+      justify-content: space-between;
+    }
+    .menu-toggle div {
+      height: 4px;
+      background: white;
+      border-radius: 2px;
+    }
+    nav.mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: var(--primary);
+      width: 200px;
+      border-radius: 0 0 var(--radius) var(--radius);
+      flex-direction: column;
+      padding: 10px 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      z-index: 10;
+    }
+    nav.mobile-menu a, nav.mobile-menu button {
+      color: white;
+      padding: 10px 24px;
+      font-weight: 600;
+      border: none;
+      background: none;
+      text-align: left;
+      width: 100%;
+      cursor: pointer;
+    }
+    nav.mobile-menu a:hover, nav.mobile-menu button:hover {
+      background: rgba(255,255,255,0.15);
+    }
+    nav.mobile-menu.show {
+      display: flex;
+    }
 
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+    /* Botão modo escuro no header à direita do hambúrguer */
+    #theme-toggle {
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 1.3rem;
+    }
 
-body {
-  font-family: var(--font-sans);
-  background: var(--bg);
-  color: #111827;
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 24px;
-}
+    /* Ajustes para desktop */
+    @media (min-width: 769px) {
+      .menu-toggle {
+        display: none !important;
+      }
+      nav.mobile-menu {
+        display: none !important;
+      }
+      nav.desktop-menu {
+        display: flex !important;
+      }
+      .right-section {
+        gap: 16px;
+      }
+    }
 
-.site {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+    /* Ajustes para mobile */
+    @media (max-width: 768px) {
+      header {
+        padding: 16px 16px;
+      }
+      .logo img {
+        height: 60px;
+      }
+      nav.desktop-menu {
+        display: none;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+      .right-section {
+        gap: 8px;
+        align-items: center;
+      }
+      .diskgas-header {
+        display: none;
+      }
+    }
 
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: var(--primary);
-  border-radius: var(--radius);
-  padding: 16px 24px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  gap: var(--gap);
-  flex-wrap: wrap;
-}
+    .vantagem-item img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 12px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      object-fit: contain;
+    }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
+    .diskgas-info p:first-of-type {
+      font-size: 2.5rem !important;
+      font-weight: 700 !important;
+      margin-bottom: 12px;
+      color: #fff;
+    }
 
-.logo img {
-  height: 100px;
-  width: auto;
-}
+    body.dark {
+      background: #1a1a1a;
+      color: #f0f0f0;
+    }
 
-nav {
-  display: flex;
-  gap: 12px;
-}
+    body.dark header,
+    body.dark .urgency-section,
+    body.dark .vantagens,
+    body.dark .promocoes,
+    body.dark .vantagem-item,
+    body.dark .promo-card,
+    body.dark .diskgas {
+      background: #2a2a2a;
+      color: #f0f0f0;
+    }
 
-nav a {
-  padding: 8px 12px;
-  text-decoration: none;
-  border-radius: 8px;
-  color: white;
-  font-weight: 600;
-  transition: background 0.2s;
-}
+    body.dark nav a {
+      color: #f0f0f0;
+    }
 
-nav a:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
+    body.dark nav a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
 
-.right-section {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
+    body.dark .promo-card p,
+    body.dark .vantagem-item p {
+      color: #cccccc;
+    }
 
-.diskgas-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 0.95rem;
-}
+    body.dark #address-input {
+      background-color: #333;
+      color: #f0f0f0;
+    }
 
-.diskgas-header img {
-  height: 32px;
-}
-
-.register-btn {
-  background-color: var(--accent);
-  color: white;
-  padding: 10px 18px;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.register-btn:hover {
-  background-color: var(--primary-600);
-}
-
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.menu-toggle img {
-  width: 28px;
-  height: 28px;
-}
-
-/* Seções de exemplo */
-.urgency-section, .promocoes, .vantagens, .diskgas {
-  margin-top: 32px;
-}
-
-/* Responsividade para mobile */
-@media (max-width: 768px) {
-  header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-  }
-
-  nav {
-    display: none; /* esconde links e será substituído pelo menu hambúrguer */
-    flex-direction: column;
-    align-items: center;
-    background: var(--primary);
-    width: 100%;
-    padding: 12px 0;
-  }
-
-  nav.show {
-    display: flex;
-  }
-
-  .right-section {
-    justify-content: center;
-    flex: 1;
-    gap: 12px;
-  }
-
-  .diskgas-header {
-    display: none; /* esconde número no header no celular */
-  }
-
-  #popup-overlay, .hero, .promocoes, .vantagens, .diskgas {
-    width: 100%;
-  }
-}
-
-/* Dark mode */
-body.dark {
-  background: #1a1a1a;
-  color: #f0f0f0;
-}
-
-body.dark header,
-body.dark .promocoes,
-body.dark .vantagens,
-body.dark .diskgas {
-  background: #2a2a2a;
-  color: #f0f0f0;
-}
-
-body.dark nav a {
-  color: #f0f0f0;
-}
-
-body.dark nav a:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-</style>
+  </style>
 </head>
 <body>
-<div class="site">
-  <header>
-    <div class="brand">
-      <div class="logo">
-        <img src="img/logo.svg" alt="Logo Click Gás" />
+  <div class="site">
+
+    <header>
+      <div class="brand">
+        <div class="logo">
+          <img src="img/logo.svg" alt="Logo Click Gás" />
+        </div>
+        <nav class="desktop-menu">
+          <a href="index.html">Início</a>
+          <a href="sobre-nos.html">Sobre nós</a>
+          <a href="produtos.html">Produtos</a>
+        </nav>
       </div>
-      <nav id="nav-links">
-        <a href="index.html">Início</a>
-        <a href="sobre-nos.html">Sobre nós</a>
-        <a href="produtos.html">Produtos</a>
-      </nav>
+      <div class="right-section">
+        <button id="theme-toggle" class="register-btn" aria-label="Alternar modo escuro">🌙</button>
+        <div class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <nav class="mobile-menu" id="mobile-menu" aria-label="Menu mobile">
+          <a href="index.html">Início</a>
+          <a href="sobre-nos.html">Sobre nós</a>
+          <a href="produtos.html">Produtos</a>
+          <button class="register-btn" onclick="window.location.href='login.html'">Login</button>
+        </nav>
+      </div>
+    </header>
+
+    <section class="urgency-section">
+      <div class="urgency-text">
+        Seu gás acabou?<br />
+        Não se preocupe, estamos aqui para ajudar!
+      </div>
+      <form id="address-form">
+        <input type="text" id="address-input" name="address" placeholder="Digite seu endereço" required />
+        <button type="submit" class="urgency-btn">Enviar</button>
+      </form>
+    </section>
+
+    <section class="vantagens">
+      <div class="vantagens-list">
+        <div class="vantagem-item">
+          <img src="img/vantagens/vantagem1.png" alt="Vantagem1" />
+          <h3>Entrega rápida</h3>
+          <p>Receba seu pedido no menor tempo possível.</p>
+        </div>
+        <div class="vantagem-item">
+          <img src="img/vantagens/vantagem2.png" alt="Vantagem2" />
+          <h3>Preços que cabem no seu bolso</h3>
+          <p>Oferecemos o melhor custo-benefício do mercado.</p>
+        </div>
+        <div class="vantagem-item">
+          <img src="img/vantagens/vantagem3.png" alt="Vantagem3" />
+          <h3>Pagamento facilitado</h3>
+          <p>Aceitamos cartões, dinheiro e pix para sua comodidade.</p>
+        </div>
+        <div class="vantagem-item">
+          <img src="img/vantagens/vantagem4.png" alt="Vantagem4" />
+          <h3>Promoções exclusivas</h3>
+          <p>Descontos especiais para clientes frequentes e pedidos grandes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="promocoes">
+      <h2><b>CONFIRA NOSSAS PROMOÇÕES</b></h2>
+      <div class="promo-cards">
+        <div class="promo-card">
+          <img src="img/promocoes/promocao1.png" alt="Promoção 1" />
+          <h3>20% OFF</h3>
+          <p>Compre dois botijões e ganhe 20% de desconto!</p>
+          <a href="produtos.html" class="promo-btn">Ver oferta</a>
+        </div>
+        <div class="promo-card">
+          <img src="img/promocoes/promocao2.png" alt="Promoção 1" />
+          <h3>Combo família</h3>
+          <p>2 botijões de gás + 2 galões de água por um preço especial. Aproveite praticidade e economia para o dia a dia.</p>
+          <a href="produtos.html" class="promo-btn">Ver oferta</a>
+        </div>
+        <div class="promo-card">
+          <img src="img/promocoes/promocao3.png" alt="Promoção 1" />
+          <h3>Promoção Sem Sede</h3>
+          <p>Garanta seu galão de água com 5% OFF!</p>
+          <a href="produtos.html" class="promo-btn">Ver oferta</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="diskgas">
+      <img src="img/diskgaszap.svg" alt="DiskGas Ícone" />
+      <div class="diskgas-info">
+        <p>(21) 99999-9999</p>
+        <p>Peça agora pelo telefone ou WhatsApp e receba em minutos!</p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Toggle tema escuro
+    const toggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark');
+      toggleButton.textContent = '☀️';
+    }
+
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      const isDark = body.classList.contains('dark');
+      toggleButton.textContent = isDark ? '☀️' : '🌙';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    // Menu hambúrguer mobile
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('show');
+    });
+
+    // Popup de presença
+    document.addEventListener("DOMContentLoaded", () => {
+      if (!sessionStorage.getItem("popupDismissed")) {
+        setTimeout(() => {
+          const overlay = document.getElementById("popup-overlay");
+          overlay.style.display = "flex";
+          setTimeout(() => overlay.classList.add("show"), 10);
+        }, 5000);
+      }
+
+      const okButton = document.getElementById("popup-ok");
+      if (okButton) {
+        okButton.addEventListener("click", () => {
+          const overlay = document.getElementById("popup-overlay");
+          overlay.classList.remove("show");
+          setTimeout(() => (overlay.style.display = "none"), 700);
+          sessionStorage.setItem("popupDismissed", "true");
+        });
+      }
+    });
+  </script>
+
+  <div id="popup-overlay">
+    <div id="popup">
+      <p>Você ainda está aqui?</p>
+      <button id="popup-ok">Sim, ainda estou aqui!</button>
     </div>
-    <div class="right-section">
-      <a href="tel:+5521999999999" class="diskgas-header">
-        <img src="img/diskgas.svg" alt="DiskGas" />
-        <span>(21) 99999-9999</span>
-      </a>
-      <button class="register-btn" onclick="window.location.href='login.html'">Login</button>
-      <button id="theme-toggle" class="register-btn">🌙</button>
-      <button class="menu-toggle" id="menu-toggle">
-        <img src="img/menu.svg" alt="Menu">
-      </button>
-    </div>
-  </header>
-
-  <section class="promocoes">
-    <h2>Promoções</h2>
-    <p>Conteúdo de promoções aqui...</p>
-  </section>
-
-  <section class="vantagens">
-    <h2>Vantagens</h2>
-    <p>Conteúdo de vantagens aqui...</p>
-  </section>
-
-  <section class="diskgas">
-    <p class="diskgas-info" style="font-size:2rem; font-weight:bold; color:white;">(21) 99999-9999</p>
-    <p>Peça agora pelo telefone ou WhatsApp!</p>
-  </section>
-</div>
-
-<script>
-// Dark mode
-const toggleButton = document.getElementById('theme-toggle');
-const body = document.body;
-
-if (localStorage.getItem('theme') === 'dark') {
-  body.classList.add('dark');
-  toggleButton.textContent = '☀️';
-}
-
-toggleButton.addEventListener('click', () => {
-  body.classList.toggle('dark');
-  const isDark = body.classList.contains('dark');
-  toggleButton.textContent = isDark ? '☀️' : '🌙';
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-});
-
-// Menu hamburguer
-const menuToggle = document.getElementById('menu-toggle');
-const navLinks = document.getElementById('nav-links');
-
-menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('show');
-});
-</script>
+  </div>
 </body>
 </html>
