@@ -451,6 +451,102 @@ body.dark #address-input {
   background-color: #0056b3;
 }
 
+    /* ===========================
+   RESPONSIVIDADE SIMPLES
+=========================== */
+@media (max-width: 1024px) {
+  body {
+    padding: 16px;
+  }
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .brand {
+    flex-direction: column;
+    gap: 16px;
+  }
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  .right-section {
+    justify-content: center;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .hero {
+    height: auto;
+    padding: 40px 20px;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .cta-button {
+    font-size: 1rem;
+    padding: 10px 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  #address-form {
+    flex-direction: column;
+  }
+  .urgency-btn {
+    width: 100%;
+  }
+  .promo-cards, .vantagens-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .promo-card, .vantagem-item {
+    width: 90%;
+    max-width: 350px;
+  }
+  .diskgas {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+  .diskgas img {
+    height: 120px;
+  }
+  .diskgas-info h2 {
+    font-size: 1.8rem;
+  }
+  .diskgas-info p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 12px 12px;
+  }
+  .logo img {
+    height: 80px;
+  }
+  nav a {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+  .cta-button {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+  }
+  .promo-card img {
+    height: 150px;
+  }
+  .vantagem-item {
+    padding: 16px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -591,3 +687,4 @@ body.dark #address-input {
 
 </body>
 </html>
+
