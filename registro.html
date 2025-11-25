@@ -166,6 +166,82 @@ body.dark .login-container input[type="submit"] { background: var(--primary-600)
 body.dark .login-container input[type="submit"]:hover { background: var(--accent); }
 body.dark .login-container a { color:#90caf9; }
 
+  /* ===========================
+   RESPONSIVIDADE SIMPLES
+=========================== */
+@media (max-width: 1024px) {
+  body {
+    padding: 16px;
+  }
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .brand {
+    flex-direction: column;
+    gap: 16px;
+  }
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  .right-section {
+    justify-content: center;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .login-container {
+    padding: 32px;
+    width: 90%;
+    max-width: 400px;
+  }
+  .login-container h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    padding: 24px;
+  }
+  .login-container h2 {
+    font-size: 1.4rem;
+  }
+  .password-container input {
+    padding: 10px 36px 10px 10px;
+  }
+  .toggle-password img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 12px 12px;
+  }
+  .logo img {
+    height: 80px;
+  }
+  nav a {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+  .login-container {
+    padding: 16px;
+  }
+  .login-container input[type="submit"] {
+    font-size: 0.95rem;
+    padding: 10px 16px;
+  }
+  .requirements-box {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -275,3 +351,4 @@ passwordInput.addEventListener('input', () => {
 
 </body>
 </html>
+
