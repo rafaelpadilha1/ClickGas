@@ -158,7 +158,6 @@ nav a:hover { background:rgba(255,255,255,0.2); }
   display: block !important; /* força exibir */
 }
 
-
 .login-container input[type="submit"] {
   width:100%;
   padding:12px;
@@ -192,7 +191,31 @@ body.dark .login-container a { color:#90caf9; }
 
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {
-  .login-container { padding:24px; }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px;
+    gap: 12px;
+  }
+  .logo img {
+    height: 60px;
+  }
+  nav {
+    flex-direction: column;
+    width: 100%;
+  }
+  nav a {
+    padding: 8px 0;
+    width: 100%;
+    text-align: left;
+  }
+  .right-section {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .login-container {
+    padding:24px;
+  }
   .login-container h2 { font-size:1.4rem; }
 }
 </style>
@@ -260,11 +283,11 @@ body.dark .login-container a { color:#90caf9; }
 const toggleButton = document.getElementById('theme-toggle');
 const body = document.body;
 
+// Dark mode
 if (localStorage.getItem('theme') === 'dark') {
   body.classList.add('dark');
   toggleButton.textContent = '☀️';
 }
-
 toggleButton.addEventListener('click', () => {
   body.classList.toggle('dark');
   const isDark = body.classList.contains('dark');
@@ -272,6 +295,7 @@ toggleButton.addEventListener('click', () => {
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
 
+// Toggle senha
 function togglePassword(id, btn) {
   const input = document.getElementById(id);
   const img = btn.querySelector('img');
@@ -286,7 +310,7 @@ function togglePassword(id, btn) {
   }
 }
 
-// Validação em tempo real da senha
+// Validação em tempo real da senha e requisitos
 const passwordInput = document.getElementById('password');
 const confirmInput = document.getElementById('confirm_password');
 const requirements = {
@@ -324,7 +348,7 @@ passwordInput.addEventListener('input', () => {
 
 confirmInput.addEventListener('input', checkPasswordMatch);
 
-// Impede envio do formulário se as senhas não coincidirem
+// Impede envio se as senhas não coincidirem
 document.getElementById('register-form').addEventListener('submit', function(e) {
   if(!checkPasswordMatch()){
     e.preventDefault();
