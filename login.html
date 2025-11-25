@@ -47,7 +47,13 @@ nav { display: flex; gap: 12px; }
 nav a { color: white; font-weight: 600; text-decoration: none; padding: 8px 12px; border-radius: 8px; transition: background 0.3s; }
 nav a:hover { background: rgba(255,255,255,0.2); }
 
-.right-section { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: nowrap; /* impede que quebre linha */
+}
+
 .diskgas-header { display: flex; align-items: center; gap: 8px; color: white; font-weight: bold; font-size: 0.95rem; text-decoration: none; }
 .diskgas-header img { height: 32px; }
 .register-btn { background-color: var(--accent); color: white; padding: 10px 18px; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s; }
@@ -60,14 +66,12 @@ nav a:hover { background: rgba(255,255,255,0.2); }
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
   width: 100%;
   max-width: 400px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
 }
 
 .login-container h2 {
   text-align: center;
   color: var(--primary);
+  margin-bottom: 24px;
   font-size: 1.8rem;
 }
 
@@ -77,6 +81,7 @@ nav a:hover { background: rgba(255,255,255,0.2); }
   gap: 16px;
 }
 
+/* Inputs padronizados */
 .login-container input[type="text"],
 .login-container input[type="password"] {
   width: 100%;
@@ -85,8 +90,10 @@ nav a:hover { background: rgba(255,255,255,0.2); }
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
+  box-sizing: border-box;
 }
 
+/* Container de senha */
 .password-container {
   position: relative;
   width: 100%;
@@ -99,6 +106,7 @@ nav a:hover { background: rgba(255,255,255,0.2); }
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
+  box-sizing: border-box;
   padding-right: 44px;
 }
 
@@ -122,6 +130,7 @@ nav a:hover { background: rgba(255,255,255,0.2); }
   height: 24px;
 }
 
+/* Botão de submit */
 .login-container input[type="submit"] {
   width: 100%;
   height: 44px;
@@ -147,47 +156,25 @@ nav a:hover { background: rgba(255,255,255,0.2); }
 
 .message { text-align: center; color: red; margin-top: 10px; }
 
-/* Dark mode */
-body.dark {
-  background: #1a1a1a;
-  color: #f0f0f0;
-}
-body.dark header, body.dark .login-container {
-  background: #2a2a2a;
-  color: #f0f0f0;
-}
+/* Tema escuro */
+body.dark { background: #1a1a1a; color: #f0f0f0; }
+body.dark header, body.dark .login-container { background: #2a2a2a; color: #f0f0f0; }
 body.dark nav a { color: #f0f0f0; }
 body.dark nav a:hover { background: rgba(255,255,255,0.1); }
 body.dark .login-container h2 { color: #416ab4; }
-body.dark .login-container input[type="text"], body.dark .login-container input[type="password"] {
-  background-color: #333;
-  color: #f0f0f0;
-  border: 1px solid #555;
-}
+body.dark .login-container input[type="text"], body.dark .login-container input[type="password"] { background-color: #333; color: #f0f0f0; border: 1px solid #555; }
 body.dark .login-container input::placeholder { color: #aaa; }
 body.dark .login-container input[type="submit"] { background: var(--primary-600); }
 body.dark .login-container input[type="submit"]:hover { background: var(--accent); }
 body.dark .login-container a { color: #90caf9; }
 
-/* ===============================
-   RESPONSIVIDADE
-================================= */
-@media (max-width: 1024px) {
-  header { flex-direction: column; align-items: center; text-align: center; }
-  .brand { flex-direction: column; gap: 12px; }
-  nav { flex-wrap: wrap; justify-content: center; gap: 8px; }
-  .right-section { justify-content: center; gap: 12px; margin-top: 12px; }
-}
-
-@media (max-width: 768px) {
-  .login-container { padding: 32px; width: 90%; }
-  .logo img { height: 80px; }
-}
-
+/* Ajustes mobile */
 @media (max-width: 480px) {
-  header { padding: 12px; }
-  nav a { font-size: 0.85rem; padding: 6px 10px; }
-  .login-container { padding: 24px; }
+  .right-section {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+  }
 }
 </style>
 </head>
