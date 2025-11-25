@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sobre Nós - Click Gás</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
- <style>
+  <style>
     :root {
       --bg: #f6f8fb;
       --card: #ffffff;
@@ -112,154 +111,6 @@
     .register-btn:hover {
       background-color: var(--primary-600);
     }
-    .urgency-section {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--primary);
-      color: white;
-      border-radius: var(--radius);
-      padding: 12px 16px;
-      margin-bottom: 32px;
-      gap: 12px;
-    }
-    .urgency-text {
-      font-size: 1rem;
-      font-weight: 600;
-      flex: 1 1 300px;
-      line-height: 1.3;
-    }
-    #address-form {
-      display: flex;
-      flex: 1 1 300px;
-      gap: 8px;
-    }
-    #address-input {
-      flex: 1;
-      padding: 8px 12px;
-      border-radius: 30px;
-      border: none;
-      font-size: 0.9rem;
-      outline: none;
-      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
-    }
-    .urgency-btn {
-      background: var(--accent);
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 30px;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: background-color 0.3s;
-    }
-    .urgency-btn:hover {
-      background: var(--primary-600);
-    }
-    .hero {
-      background: url('img/hero-background.jpg') no-repeat center center/cover;
-      height: 400px;
-      border-radius: var(--radius);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-      padding: 20px;
-      margin-bottom: 40px;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      font-weight: bold;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-    }
-    .cta-button {
-      margin-top: 20px;
-      background: var(--accent);
-      color: white;
-      padding: 12px 24px;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background-color 0.3s;
-      display: inline-block;
-    }
-    .cta-button:hover {
-      background: var(--primary-600);
-    }
-    .promocoes {
-      background: var(--card);
-      padding: 40px 20px;
-      border-radius: var(--radius);
-      margin-bottom: 40px;
-      text-align: center;
-    }
-    .promocoes h2 {
-      font-size: 2rem;
-      color: var(--primary);
-      margin-bottom: 32px;
-    }
-    .promo-cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 24px;
-    }
-    .promo-card {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-      width: 320px;
-      padding: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .promo-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    }
-    .promo-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: var(--radius);
-      margin-bottom: 12px;
-    }
-    .promo-title::after {
-      content: "";
-      display: block;
-      width: 80px;
-      height: 4px;
-      background: var(--accent);
-      margin: 12px auto 0;
-      border-radius: 4px;
-    }
-    .promo-card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-    }
-    .promo-card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 12px;
-    }
-    .promo-btn {
-      display: inline-block;
-      background: var(--accent);
-      color: white;
-      padding: 10px 16px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .promo-btn:hover {
-      background: var(--primary-600);
-    }
     .vantagens {
       background: var(--card);
       padding: 40px 20px;
@@ -289,9 +140,49 @@
     .vantagem-item:hover {
       transform: translateY(-5px);
     }
-    .vantagem-icon {
-      font-size: 2.5rem;
-      color: var(--accent);
+    .vantagem-item img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 12px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      object-fit: contain;
+    }
+    .promo-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+    }
+    .promo-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      width: 320px;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .promo-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+    .promo-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+    }
+    .promo-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+    .promo-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
       margin-bottom: 12px;
     }
     .diskgas {
@@ -303,7 +194,6 @@
       align-items: center;
       gap: 32px;
       padding: 40px 20px;
-      border-radius: none;
     }
     .diskgas img {
       height: 140px;
@@ -320,88 +210,62 @@
       font-size: 1.1rem;
       margin-bottom: 20px;
     }
-    .diskgas-info a {
-      background: #33c958;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
+    .diskgas-info p:first-of-type {
+      font-size: 2.5rem !important;
+      font-weight: 700 !important;
+      margin-bottom: 12px;
+      color: #fff;
     }
-    .diskgas-info a:hover {
-      background: #348534;
+
+    /* Dark Mode */
+    body.dark {
+      background: #1a1a1a;
+      color: #f0f0f0;
+    }
+    body.dark header,
+    body.dark .vantagens,
+    body.dark .promo-card,
+    body.dark .vantagem-item,
+    body.dark .diskgas {
+      background: #2a2a2a;
+      color: #f0f0f0;
+    }
+    body.dark nav a {
+      color: #f0f0f0;
+    }
+    body.dark nav a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    body.dark .promo-card p,
+    body.dark .vantagem-item p {
+      color: #cccccc;
+    }
+
+    /* ===========================
+       RESPONSIVIDADE
+    ============================ */
+    @media (max-width: 1024px) {
+      body { padding: 16px; }
+      header { flex-direction: column; align-items: center; text-align: center; }
+      .brand { flex-direction: column; gap: 16px; }
+      nav { flex-wrap: wrap; justify-content: center; gap: 8px; }
+      .right-section { justify-content: center; gap: 12px; margin-top: 12px; }
     }
     @media (max-width: 768px) {
-      .promo-cards, .vantagens-list {
-        flex-direction: column;
-        align-items: center;
-      }
-      .diskgas {
-        flex-direction: column;
-      }
-      #address-form {
-        flex-direction: column;
-      }
-      .urgency-btn {
-        width: 100%;
-      }
+      .promo-cards, .vantagens-list { flex-direction: column; align-items: center; }
+      .diskgas { flex-direction: column; text-align: center; gap: 16px; }
+      .diskgas img { height: 120px; }
+      .diskgas-info h2 { font-size: 1.8rem; }
+      .diskgas-info p { font-size: 1rem; }
+      .promo-card, .vantagem-item { width: 90%; max-width: 350px; }
     }
-    .vantagem-item img {
-      width: 100px;
-      height: auto;
-      margin-bottom: 12px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      object-fit: contain;
+    @media (max-width: 480px) {
+      header { padding: 12px 12px; }
+      .logo img { height: 80px; }
+      nav a { font-size: 0.85rem; padding: 6px 10px; }
+      .promo-card img { height: 150px; }
+      .vantagem-item { padding: 16px; }
     }
-
-.diskgas-info p:first-of-type {
-  font-size: 2.5rem !important;
-  font-weight: 700 !important;
-  margin-bottom: 12px;
-  color: #fff;
-}
-
-body.dark {
-  background: #1a1a1a;
-  color: #f0f0f0;
-}
-
-body.dark header,
-body.dark .urgency-section,
-body.dark .vantagens,
-body.dark .promocoes,
-body.dark .vantagem-item,
-body.dark .promo-card,
-body.dark .diskgas {
-  background: #2a2a2a;
-  color: #f0f0f0;
-}
-
-body.dark nav a {
-  color: #f0f0f0;
-}
-
-body.dark nav a:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-body.dark .promo-card p,
-body.dark .vantagem-item p {
-  color: #cccccc;
-}
-
-body.dark #address-input {
-  background-color: #333;
-  color: #f0f0f0;
-}
-
-body.dark .promo-btn,
-body.dark .urgency-btn,
-bod
-
   </style>
 </head>
 <body>
@@ -424,7 +288,6 @@ bod
         </a>
         <button class="register-btn" onclick="window.location.href='login.html'">Login</button>
         <button id="theme-toggle" class="register-btn">🌙</button>
-
       </div>
     </header>
 
@@ -483,6 +346,7 @@ bod
       </div>
     </section>
   </div>
+
   <script>
   const toggleButton = document.getElementById('theme-toggle');
   const body = document.body;
@@ -498,7 +362,6 @@ bod
     toggleButton.textContent = isDark ? '☀️' : '🌙';
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
-</script>
-
+  </script>
 </body>
 </html>
