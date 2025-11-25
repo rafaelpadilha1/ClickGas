@@ -450,101 +450,58 @@ body.dark #address-input {
 #popup button:hover {
   background-color: #0056b3;
 }
-/* ===============================
-   MENU HAMBÚRGUER + SIDEBAR
-   =============================== */
-.hamburger {
+
+/* Escondemos o menu padrão no mobile */
+#menu-toggle {
   display: none;
-  position: fixed;
-  top: 18px;
-  left: 18px;
-  font-size: 32px;
-  background: var(--primary);
-  color: white;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 8px;
-  z-index: 9999;
-  cursor: pointer;
-}
-
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 0;
-  left: -260px;
-  width: 260px;
-  height: 100%;
-  background: var(--primary);
-  padding: 20px;
-  transition: left 0.3s ease;
-  z-index: 10000;
-  box-shadow: 3px 0 12px rgba(0,0,0,0.2);
-}
-
-.sidebar.show {
-  left: 0;
-}
-
-.sidebar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.sidebar-header img {
-  height: 70px;
-}
-
-.close-btn {
+  font-size: 2rem;
   background: none;
   border: none;
-  font-size: 26px;
   color: white;
   cursor: pointer;
+  margin-left: 10px;
 }
 
-.sidebar-nav {
-  margin-top: 40px;
+#main-nav {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  gap: 12px;
 }
 
-.sidebar-nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.sidebar-nav a:hover {
-  opacity: 0.7;
-}
-
-.sidebar-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  z-index: 9000;
-}
-
-.sidebar-overlay.show {
-  display: block;
-}
-
-/* Mostrar botão hambúrguer e esconder menu principal no mobile */
-@media (max-width: 850px) {
-  nav {
+/* Menu mobile */
+@media (max-width: 768px) {
+  #main-nav {
     display: none;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: var(--primary);
+    padding: 10px 0;
+    border-radius: 0 0 12px 12px;
+    z-index: 1000;
   }
-  .hamburger {
+  
+  #main-nav a {
+    padding: 12px 24px;
     display: block;
+  }
+
+  #menu-toggle {
+    display: block;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .right-section {
+    margin-top: 10px;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 }
 
@@ -553,44 +510,33 @@ body.dark #address-input {
 <body>
   <div class="site">
 
-<button id="hamburger" class="hamburger">☰</button>
+<header>
+  <div class="brand">
+    <div class="logo">
+      <img src="img/logo.svg" alt="Logo Click Gás" />
+    </div>
 
-<div id="sidebar" class="sidebar">
-  <div class="sidebar-header">
-    <img src="img/logo.svg" alt="Logo">
-    <button id="close-sidebar" class="close-btn">✖</button>
+    <!-- Botão Menu Hamburger -->
+    <button id="menu-toggle">☰</button>
+
+    <!-- Menu principal -->
+    <nav id="main-nav">
+      <a href="index.html">Início</a>
+      <a href="sobre-nos.html">Sobre nós</a>
+      <a href="produtos.html">Produtos</a>
+    </nav>
   </div>
 
-  <nav class="sidebar-nav">
-    <a href="index.html">Início</a>
-    <a href="sobre-nos.html">Sobre nós</a>
-    <a href="produtos.html">Produtos</a>
-    <a href="login.html">Login</a>
-  </nav>
-</div>
+  <div class="right-section">
+    <a href="tel:+5521999999999" class="diskgas-header">
+      <img src="img/diskgas.svg" alt="DiskGas" />
+      <span>(21) 99999-9999</span>
+    </a>
+    <button class="register-btn" onclick="window.location.href='login.html'">Login</button>
+    <button id="theme-toggle" class="register-btn">🌙</button>
+  </div>
+</header>
 
-<div id="sidebar-overlay" class="sidebar-overlay"></div>
-
-    <header>
-      <div class="brand">
-        <div class="logo">
-          <img src="img/logo.svg" alt="Logo Click Gás" />
-        </div>
-        <nav>
-          <a href="index.html">Início</a>
-          <a href="sobre-nos.html">Sobre nós</a>
-          <a href="produtos.html">Produtos</a>
-        </nav>
-      </div>
-      <div class="right-section">
-        <a href="tel:+5521999999999" class="diskgas-header">
-          <img src="img/diskgas.svg" alt="DiskGas" />
-          <span>(21) 99999-9999</span>
-        </a>
-        <button class="register-btn" onclick="window.location.href='login.html'">Login</button>
-        <button id="theme-toggle" class="register-btn">🌙</button>
-      </div>
-    </header>
     <section class="urgency-section">
       <div class="urgency-text">
         Seu gás acabou?<br />
@@ -694,23 +640,16 @@ body.dark #address-input {
   }
 });
 
-<script>
-const sidebar = document.getElementById("sidebar");
-const overlay = document.getElementById("sidebar-overlay");
+// Menu Hamburger
+const menuToggle = document.getElementById("menu-toggle");
+const mainNav = document.getElementById("main-nav");
 
-document.getElementById("hamburger").addEventListener("click", () => {
-  sidebar.classList.add("show");
-  overlay.classList.add("show");
-});
-
-document.getElementById("close-sidebar").addEventListener("click", () => {
-  sidebar.classList.remove("show");
-  overlay.classList.remove("show");
-});
-
-overlay.addEventListener("click", () => {
-  sidebar.classList.remove("show");
-  overlay.classList.remove("show");
+menuToggle.addEventListener("click", () => {
+  if(mainNav.style.display === "flex") {
+    mainNav.style.display = "none";
+  } else {
+    mainNav.style.display = "flex";
+  }
 });
 
 </script>
