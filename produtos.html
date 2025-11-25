@@ -23,22 +23,22 @@
       padding: 0;
     }
 
-  html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-sans);
-  background: var(--bg);
-  color: #111827;
-}
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: #111827;
+    }
 
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-   body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
+    /* === HEADER === */
     header {
       width: 100%;
       display: flex;
@@ -96,6 +96,7 @@
       font-weight: bold;
       text-decoration: none;
       font-size: 0.95rem;
+      white-space: nowrap; /* evita quebra do telefone */
     }
 
     .diskgas-header img {
@@ -117,10 +118,11 @@
       background-color: var(--primary-600);
     }
 
-    .site {
-  flex-grow: 1;
-}
+    /* =============================== */
 
+    .site {
+      flex-grow: 1;
+    }
 
     .products-section {
       background: var(--card);
@@ -192,87 +194,86 @@
       background: var(--primary-600);
     }
 
+    /* === RESPONSIVIDADE === */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
         align-items: flex-start;
+        gap: 12px;
+      }
+
+      .brand {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 8px;
       }
 
       .right-section {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
+        flex-direction: row; /* login e tema lado a lado */
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .logo img {
+        height: 80px;
       }
 
       .product-grid {
         flex-direction: column;
         align-items: center;
       }
-
-      .logo img {
-        height: 80px;
-      }
     }
 
-body.dark {
-  background: #1a1a1a;
-  color: #f0f0f0;
-}
+    /* === Tema Escuro === */
+    body.dark {
+      background: #1a1a1a;
+      color: #f0f0f0;
+    }
 
-body.dark header,
-body.dark .urgency-section,
-body.dark .vantagens,
-body.dark .promocoes,
-body.dark .vantagem-item,
-body.dark .promo-card,
-body.dark .diskgas {
-  background: #2a2a2a;
-  color: #f0f0f0;
-}
+    body.dark header,
+    body.dark .products-section {
+      background: #2a2a2a;
+      color: #f0f0f0;
+    }
 
-body.dark nav a {
-  color: #f0f0f0;
-}
+    body.dark nav a {
+      color: #f0f0f0;
+    }
 
-body.dark nav a:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
+    body.dark nav a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
 
-body.dark .promo-card p,
-body.dark .vantagem-item p {
-  color: #cccccc;
-}
+    body.dark .product-card {
+      background: #333;
+      color: #f0f0f0;
+    }
 
-body.dark #address-input {
-  background-color: #333;
-  color: #f0f0f0;
-}
-body.dark .products-section {
-  background: #2a2a2a;
-}
+    body.dark .product-info p {
+      color: #ccc;
+    }
 
-body.dark .product-card {
-  background: #333;
-  color: #f0f0f0;
-}
+    body.dark .buy-btn {
+      background: var(--primary-600);
+    }
 
-body.dark .product-info p {
-  color: #ccc;
-}
-
-body.dark .buy-btn {
-  background: var(--primary-600);
-}
-
-body.dark .buy-btn:hover {
-  background: var(--accent);
-}
-
+    body.dark .buy-btn:hover {
+      background: var(--accent);
+    }
   </style>
 </head>
 <body>
 
-
+  <!-- ✅ HEADER -->
   <header>
     <div class="brand">
       <div class="logo">
@@ -291,14 +292,12 @@ body.dark .buy-btn:hover {
       </a>
       <button class="register-btn" onclick="window.location.href='login.html'">Login</button>
       <button id="theme-toggle" class="register-btn">🌙</button>
-
     </div>
   </header>
 
-
   <div class="site">
 
-
+    <!-- Produtos -->
     <section class="products-section">
       <h2>Botijões de Gás</h2>
       <div class="product-grid">
@@ -321,7 +320,6 @@ body.dark .buy-btn:hover {
       </div>
     </section>
 
- 
     <section class="products-section">
       <h2>Galões de Água</h2>
       <div class="product-grid">
@@ -367,22 +365,24 @@ body.dark .buy-btn:hover {
     </section>
 
   </div>
+
+  <!-- Script do tema escuro -->
   <script>
-  const toggleButton = document.getElementById('theme-toggle');
-  const body = document.body;
+    const toggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
 
-  if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark');
-    toggleButton.textContent = '☀️';
-  }
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark');
+      toggleButton.textContent = '☀️';
+    }
 
-  toggleButton.addEventListener('click', () => {
-    body.classList.toggle('dark');
-    const isDark = body.classList.contains('dark');
-    toggleButton.textContent = isDark ? '☀️' : '🌙';
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  });
-</script>
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      const isDark = body.classList.contains('dark');
+      toggleButton.textContent = isDark ? '☀️' : '🌙';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  </script>
 
 </body>
 </html>
